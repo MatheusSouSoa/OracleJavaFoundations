@@ -4,10 +4,13 @@ import cell.Cell;
 
 public class Prisoner_Student_7_5 {
     //Fields 
+    private static int prisonerCount = 0;
     private String name;
     private double height;
     private int sentence;
     private Cell cell;
+    private int bookingNumber;
+    public static final int MAX_PRISONER_COUNT = 100;
     
     
     
@@ -15,11 +18,14 @@ public class Prisoner_Student_7_5 {
     public Prisoner_Student_7_5(String name, double height, int sentence, Cell cell) {
         this.name = name;
         this.height = height;
- 	this.sentence = sentence;
-     this.cell = cell;
+        this.sentence = sentence;
+        this.cell = cell;
+        prisonerCount++;
+        this.bookingNumber = prisonerCount;
     }
-    
-    
+
+
+
     //Methods
     public void think(){
         System.out.println("I'll have my revenge.");
@@ -29,6 +35,8 @@ public class Prisoner_Student_7_5 {
         System.out.println("Height: " +height);
         System.out.println("Sentence: " +sentence);
         System.out.println("CellName: " +cell.getCellName());
+        System.out.println("prisoner booking number: " +this.getBookingNumber());
+        System.out.println("prisoner count: " +prisonerCount);
     }
     
     public void tryOpenDoor(){
@@ -76,5 +84,15 @@ public class Prisoner_Student_7_5 {
     
     public void setCell(Cell cell) {
         this.cell = cell;
+    }
+
+        
+    public static int getPrisonerCount() {
+        return prisonerCount;
+    }
+
+
+    public int getBookingNumber() {
+        return bookingNumber;
     }
 }
